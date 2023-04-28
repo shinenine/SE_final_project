@@ -1,7 +1,6 @@
 package phase1;
 
 import IRUtilities.*;
-
 import java.io.*;
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
@@ -9,36 +8,36 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.HashSet;
 
-public class StopStem {
-    private Porter porter;
-    private java.util.HashSet stopWords;
-
-    public boolean isStopWord(String str) {
-        return stopWords.contains(str);
-    }
-
-    public StopStem(String str) {
-        super();
-        porter = new Porter();
-        stopWords = new java.util.HashSet();
-
-        try {
-            FileInputStream fin = new FileInputStream(str);
-            BufferedReader br = new BufferedReader(new InputStreamReader(fin));
-            String r = "";
-            while ((r = br.readLine()) != null)
-                stopWords.add(r);
-        } catch (IOException ioe) {
-            System.err.println(ioe.toString());
-        }
-
-    }
-
-    public String stem(String str) {
-        return porter.stripAffixes(str);
-    }
-/*	public static void main(String[] arg)
+public class StopStem
+{
+	private Porter porter;
+	private HashSet<String> stopWords;
+	public boolean isStopWord(String str)
+	{
+		return stopWords.contains(str);	
+	}
+	public StopStem(String str)
+	{
+		super();
+		porter = new Porter();
+		stopWords = new HashSet<String>();
+				
+		// use BufferedReader to extract the stopwords in stopwords.txt (path passed as parameter str)
+		// add them to HashSet<String> stopWords
+		// MODIFY THE BELOW CODE AND ADD YOUR CODES HERE
+		stopWords.add("is");
+		stopWords.add("am");
+		stopWords.add("are");
+		stopWords.add("was");
+		stopWords.add("were");
+	}
+	public String stem(String str)
+	{
+		return porter.stripAffixes(str);
+	}
+	public static void main(String[] arg)
 	{
 		StopStem stopStem = new StopStem("stopwords.txt");
 		String input="";
@@ -49,7 +48,7 @@ public class StopStem {
 				BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 				input = in.readLine();
 				if(input.length()>0)
-				{
+				{	
 					if (stopStem.isStopWord(input))
 						System.out.println("It should be stopped");
 					else
@@ -62,6 +61,5 @@ public class StopStem {
 		{
 			System.err.println(ioe.toString());
 		}
-	}*/
+	}
 }
-//

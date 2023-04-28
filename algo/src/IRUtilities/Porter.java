@@ -25,7 +25,7 @@ public class Porter {
   private String Clean( String str ) {
      int last = str.length();
      
-     Character ch = new Character( str.charAt(0) );
+     Character ch = Character.valueOf(str.charAt(0));
      String temp = "";
 
      for ( int i=0; i < last; i++ ) {
