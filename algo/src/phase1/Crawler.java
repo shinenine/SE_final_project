@@ -173,11 +173,11 @@ class Crawler
 		{
 			Crawler crawler = new Crawler();
 			
-			int PageMax = 200;
+			int PageMax = 300;
 			int wordID = indexer.getWordIDSize();
 			int pageID = indexer.getPageIDSize();
 			Queue<String> queue = new LinkedList<String>();
-			String initial_url = "http://www.cse.ust.hk/";
+			String initial_url = "https://www.cse.ust.hk/~kwtleung/COMP4321/testpage.htm";
 			queue.offer(initial_url);
 			if(!indexer.insertURLID(initial_url, pageID)){
 				//title
@@ -269,7 +269,6 @@ class Crawler
 						indexer.insertForward(current_pageID, wordID, indexer.getFrequency(wordID, current_pageID));
 						wordID++;
 					}
-					//					}
 				}
 
 
