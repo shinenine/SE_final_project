@@ -29,7 +29,7 @@ public class Test{
 			File outputFile = new File("Spider_result.txt");
 			PrintWriter writer = new PrintWriter(outputFile);
 
-			for(int i=0;i<200;i++) {
+			for(int i=0;i<300;i++) {
 				Page currentPage = indexer.getPageContent(i);
 				System.out.println(currentPage.getTitle());
 				System.out.println(currentPage.getURL());

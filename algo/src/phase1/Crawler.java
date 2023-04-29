@@ -239,11 +239,6 @@ class Crawler
 					wordID++;
 					//					}
 				}
-
-
-
-
-
 				//extract text from body tag
 				Vector<String> words = crawler.extractBody();
 				Indexer.removeStopWord(words);
@@ -270,9 +265,6 @@ class Crawler
 						wordID++;
 					}
 				}
-
-
-
 
 				Vector<String> links = crawler.extractLinks();
 				for(int i = 0; i < links.size(); i++) {
